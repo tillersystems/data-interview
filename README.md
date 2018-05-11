@@ -13,11 +13,11 @@ Simple containerized FlaskApp for data interviews
 	        - **MYSQL_PASSWORD:** tillerinterview
 	        - **AMAZON_S3_DATALAKE:** "s3://datalake-tiller.amazon.com" 
 	        (Fake endpoint for the moment)
-## Start project
-**Build first images and starts containers :**
-`docker-compose up -d` : Browse on http://0.0.0.0:5000/
-**ssh on python container :**
-`./ssh.sh python`
-**Connect on mysql server:** 
-(From python Container)
+## Start project  
+**Build first images and starts containers :**  
+`docker-compose up -d` : Browse on http://0.0.0.0:5000/  
+**ssh on python container :**  
+`./ssh.sh python`  
+**Connect on mysql server:**  
+(From python Container)  
 `mysql -u $MYSQL_USER -p$MYSQL_PASSWORD -h $DB_1_PORT_3306`
