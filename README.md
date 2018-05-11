@@ -14,8 +14,7 @@ Simple containerized FlaskApp for data interviews
 	        - **AMAZON_S3_DATALAKE:** "s3://datalake-tiller.amazon.com" 
 	        (Fake endpoint for the moment)
 ## Start project  
-**Build first images and starts containers :**  
-`docker-compose up -d` : Browse on http://0.0.0.0:5000/  
+Just use `./scripts/init.sh` and follow the instructions  
 **ssh on python container :**  
 `./ssh.sh python`  
 **Connect on mysql server:**  
