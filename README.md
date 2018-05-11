@@ -5,12 +5,12 @@ Simple containerized FlaskApp for data interviews
 - 2 Containers
 	- **Mysql5.7 server** (:3306)
 	- **Python2.7 Flask webserver** (:5000)
-		- Volume : `./:/app`
+		- Volume : `./:/tillerinterview`
 		- Environment : 
 			- **MYSQL_ROOT_PASSWORD:** root
-	        - **MYSQL_DATABASE:** tiller-data
-	        - **MYSQL_USER:** tiller-data
-	        - **MYSQL_PASSWORD:** tiller-data
+	        - **MYSQL_DATABASE:** tillerinterview
+	        - **MYSQL_USER:** tillerinterview
+	        - **MYSQL_PASSWORD:** tillerinterview
 	        - **AMAZON_S3_DATALAKE:** "s3://datalake-tiller.amazon.com" 
 	        (Fake endpoint for the moment)
 ## Start project

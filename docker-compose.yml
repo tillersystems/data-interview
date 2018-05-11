@@ -4,9 +4,9 @@ db:
         - 3307:3306
     environment:
         MYSQL_ROOT_PASSWORD: root
-        MYSQL_DATABASE: tiller-data
-        MYSQL_USER: tiller-data
-        MYSQL_PASSWORD: tiller-data
+        MYSQL_DATABASE: tillerinterview
+        MYSQL_USER: tillerinterview
+        MYSQL_PASSWORD: tillerinterview
     volumes:
         - mysql-data:/var/lib/mysql
 python:
@@ -15,10 +15,10 @@ python:
         - 5000:5000
     environment:
         MYSQL_ROOT_PASSWORD: root
-        MYSQL_DATABASE: tiller-data
-        MYSQL_USER: tiller-data
-        MYSQL_PASSWORD: tiller-data
-        AMAZON_S3_DATALAKE: "s3://datalake-tiller.amazon.com"
+        MYSQL_DATABASE: tillerinterview
+        MYSQL_USER: tillerinterview
+        MYSQL_PASSWORD: tillerinterview
+        AMAZON_S3_DATALAKE: "https://s3-eu-west-1.amazonaws.com/tillerinterview/hamonromain20180511/"
     volumes:
         - ./:/app
     links:
