@@ -18,7 +18,7 @@ python:
         MYSQL_DATABASE: tillerinterview
         MYSQL_USER: tillerinterview
         MYSQL_PASSWORD: tillerinterview
-        AMAZON_S3_DATALAKE: "https://s3-eu-west-1.amazonaws.com/tillerinterview/hamonromain20180511/"
+        AMAZON_S3_DATALAKE: "https://s3-eu-west-1.amazonaws.com/tillerinterview/{{s3_endpoint}}/"
     volumes:
         - ./:/app
     links:

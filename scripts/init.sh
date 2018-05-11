@@ -19,7 +19,7 @@ echo "Data lake created at $s3_endpoint."
 echo "Start building containers"
 sed "s:{{s3_endpoint}}:$lower_hash:g" ../docker-compose.yml > ../docker-compose.tmp;
 mv ../docker-compose.tmp ../docker-compose.yml
-docker-compose up -d ../
+docker-compose -f ../docker-compose.yml up -d
 echo "We are done."
 echo "browse the api on http://0.0.0.0:5000/"
 echo "ssh on the python container by running './ssh.sh python'"
