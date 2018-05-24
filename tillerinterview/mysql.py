@@ -11,9 +11,27 @@ This modules defines the interface to get a connection to MySQL.
     # Gets a connection
     conn = mysql.get_connection()
 
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - -
     # Runs a select query
     query = conn.cursor()
-    query.execute("select * from store limit 10 ;")
+    query.execute("select `id`, `name` from `store` limit 10 ;")
+
+    # To go through all results
+    for row in query:
+        # To access the collected values:
+        print row['id']
+        print row['name']
+
+    query.close()
+
+    # - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+    # Runs a insert query
+    query = conn.cursor()
+    query.execute("insert into `product` (`name`, `unit_price`) values (%s, %s)", 'MyProduct', 123)
+
+    query.close()
+
+    conn.close()
 
 
 For more information visit `MySQLdb reference <http://mysql-python.sourceforge.net/MySQLdb.html#mysqldb>`.
