@@ -42,7 +42,7 @@ def get_connection():
         raise Exception('Caller not recognized')
 
     return MySQLdb.connect(
-        host=os.environ['DB_1_PORT_3306_TCP_ADDR'],
+        host='BDD',
         port=3306,
         user=os.environ['MYSQL_USER'],
         passwd=os.environ['MYSQL_PASSWORD'],

@@ -1,25 +1,37 @@
-db:
+version: '2'
+
+services:
+  db:
     image: mysql:5.7
     ports:
-        - 3307:3306
+      - 3307:3306
     environment:
-        MYSQL_ROOT_PASSWORD: root
-        MYSQL_DATABASE: tillerinterview
-        MYSQL_USER: tillerinterview
-        MYSQL_PASSWORD: tillerinterview
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tillerinterview
+      MYSQL_USER: tillerinterview
+      MYSQL_PASSWORD: tillerinterview
     volumes:
-        - mysql-data:/var/lib/mysql
-python:
+      - ../mysql-data:/var/lib/mysql
+    networks:
+      interview-data:
+        aliases:
+          - BDD
+
+  python:
     build: ./
     ports:
-        - 5000:5000
+      - 5000:5000
     environment:
-        MYSQL_ROOT_PASSWORD: root
-        MYSQL_DATABASE: tillerinterview
-        MYSQL_USER: tillerinterview
-        MYSQL_PASSWORD: tillerinterview
-        AMAZON_S3_DATALAKE: "https://s3-eu-west-1.amazonaws.com/tillerinterview/{{s3_endpoint}}/"
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: tillerinterview
+      MYSQL_USER: tillerinterview
+      MYSQL_PASSWORD: tillerinterview
     volumes:
-        - ./:/app
-    links:
-        - db
+      - ./:/app
+    networks:
+      interview-data:
+        aliases:
+          - PYTHON
+
+networks:
+  interview-data:
